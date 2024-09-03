@@ -1,6 +1,8 @@
 # Define a class for Rooms
 # Ways to expand:
 # - Add a method to add, remove and get enemies
+# - Add room interactions, through items, added doors, traps, hidden passages
+# - Add NPC (non-playable characters that give hints)
 class Room:
     def __init__(self, name, description, x=0, y=0):
         self.name = name

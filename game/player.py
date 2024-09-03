@@ -1,3 +1,10 @@
+# Ideas to extend functionality:
+# Add health & resource management:
+# - add health attribute
+# - health decreases when you pass through the fire room
+# - health increases when you find a health item
+# - use your creativity
+
 # Define a class for the Player
 class Player:
     def __init__(self, name, current_room, rooms):
