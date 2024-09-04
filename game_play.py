@@ -50,25 +50,32 @@ def setup_game(name):
 
 # Main game loop
 def play_game(user):
+    print(f"\n\n{user.name}, you are in the {user.current_room}")
     while True:
-        print(f"\n\n{user.name}, you are in the {user.current_room}")
-        command = int(input("Choose an option:"
-                            "\n1: move\n2: pick up"
-                            "\n3: inventory\n4: display map of discovered rooms"
-                            "\n5: quit\n\nOption: "))
+        try:
+            command = int(input("Choose an option:\n"
+                            "1: move\n"
+                            "2: pick up\n"
+                            "3: inventory\n"
+                            "4: display map of discovered rooms\n"
+                            "5: quit\n"
+                            "\nOption: "))
+        except ValueError:
+            print('Please enter a number')
+            continue
 
-        if command is Option.MOVE.value:
+        if command == Option.MOVE.value:
             direction = input("Provide direction (left|right|up|down): ")
             user.move(direction)
         elif command == Option.PICK_UP.value:
             items = user.current_room.get_items()
-            if len(items):
+            if len(items) > 0:
                 print("The following items are available: ")
                 print("0. I don't want to pick anything up")
                 for item in items:
                     print(f"1. {item.name}")
                 chosen_item = int(input("Which item would you like to pick up: "))
-                if chosen_item != 0:
+                if  0 < chosen_item <= len(items):
                     user.pick_up(items[chosen_item - 1].name)
                 else:
                     continue
@@ -83,9 +90,3 @@ def play_game(user):
             break
         else:
             print("Invalid command.")
-
-
-if __name__ == "__main__":
-    name = input("What is your name?: ")
-    player = setup_game(name)
-    play_game(player)

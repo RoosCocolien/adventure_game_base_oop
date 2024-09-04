@@ -32,7 +32,7 @@ AdventureGameOOP/
 3. Run the game using the following command:
 
 ```
-    python game.py
+    python main.py
 ```
 
 This will start the adventure game and prompt you for commands as you navigate through the rooms and interact with items.
