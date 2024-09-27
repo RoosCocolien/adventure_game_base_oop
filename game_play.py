@@ -13,7 +13,7 @@ class Option(Enum):
 
 
 # Game Setup
-def setup_game(name):
+def setup_game(player_name):
     # Create rooms
     kitchen = Room("Kitchen",
                    "A dark and dirty room buzzing with flies.",
@@ -30,9 +30,13 @@ def setup_game(name):
     garden = Room("Garden",
                   "A lush garden full of flowers",
                   x=1, y=0)
+    study = Room("Study",
+                 "You've entered a dimly lit Study Room, the scent of old books and parchment filling"
+                 "the air. Who knows what you could find in here?...",
+                 x=0, y=1)
 
     # List of all rooms
-    rooms = [kitchen, ballroom, dining_hall, library, garden]
+    rooms = [kitchen, ballroom, dining_hall, library, garden, study]
 
     # Create items
     sword = Item("Sword", "A sharp-looking sword.")
@@ -43,7 +47,7 @@ def setup_game(name):
     ballroom.add_item(shield)
 
     # Create a player and start the game in the kitchen
-    player_in_the_kitchen = Player(name, kitchen, rooms)
+    player_in_the_kitchen = Player(player_name, kitchen, rooms)
 
     return player_in_the_kitchen
 
