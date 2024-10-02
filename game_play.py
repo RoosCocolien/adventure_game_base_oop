@@ -61,7 +61,7 @@ def play_game(user):
                             "\n3: inventory\n4: display map of discovered rooms"
                             "\n5: quit\n\nOption: "))
 
-        if command is Option.MOVE.value:
+        if command == Option.MOVE.value:
             direction = input("Provide direction (left|right|up|down): ")
             user.move(direction)
         elif command == Option.PICK_UP.value:
